@@ -197,10 +197,10 @@
             // | CTRL | WIN | ALT |HENKAN|SPACE|MUHENKAN|       | BS | ENT |      　　　　       | DEL |           
 
             bindings = <
-&kp Q           &kp W         &kp E         &kp R             &kp T                                             &kp Y          &kp U      &kp I      &kp O    &kp P
-&kp A           &kp S         &kp D         &kp F             &kp G        &kp LS(LG(S))         &kp MINUS      &kp H          &kp J      &kp K      &kp L    &kp SQT
-&kp LEFT_SHIFT  &kp Z         &kp X         &lt 6 C           &lt 5 V      &lt 4 B               &kp SEMICOLON  &kp N          &kp M      &kp COMMA  &kp DOT  &kp SLASH
-&kp LCTRL       &kp LEFT_WIN  &kp LEFT_ALT  &lt 3 INT_HENKAN  &lt 2 SPACE  &lt 1 INT_MUHENKAN                   &kp BACKSPACE  &kp ENTER                                 &kp DEL
+&kp Q      &kp W     &kp E     &kp R             &kp T                                         &kp Y     &kp U      &kp I      &kp O    &kp P
+&kp A      &kp S     &kp D     &kp F             &kp G        &kp LS(LG(S))         &kp MINUS  &kp H     &kp J      &kp K      &kp L    &kp SEMI
+&kp LSHFT  &kp Z     &kp X     &lt 6 C           &lt 5 V      &lt 4 B               &kp APOS   &kp N     &kp M      &kp COMMA  &kp DOT  &kp FSLH
+&kp LCTRL  &kp LGUI  &kp LALT  &lt 4 INT_HENKAN  &lt 2 SPACE  &lt 3 INT_MUHENKAN               &kp BSPC  &kp ENTER                                &kp DEL
             >;
 
             sensor-bindings =
@@ -210,33 +210,35 @@
 
         layer_1 {
             // -----------------------------------------------------------------------------------------
-            // | 半角/全角 |CAPS|     |     |     |                     |     |     |  -  |  ^  |  ¥  |
-            // | TAB |     |     |     |     |     |              |    |     |     |     |  @  |  [  |
-            // |SHIFT|     |     |     |     |     |            | 英数 | かな |     |     |     |  ]  |
-            // | CTRL| WIN | ALT |HENKAN|SPACE|MUHENKAN|         | BS | ENT |                   | DEL |
-
-            bindings = <
-&kp GRAVE       &kp CAPS      &trans        &trans            &trans                                          &trans         &trans     &moA    &moB  &moC
-&kp TAB         &trans        &trans        &trans            &trans       &trans                &trans       &trans         &trans     &trans  &moD  &moE
-&kp LEFT_SHIFT  &trans        &trans        &trans            &trans       &trans                &kp JP_EISU  &kp JP_KANA    &trans     &moF    &moG  &moH
-&mt LCTL ESC    &kp LEFT_WIN  &kp LEFT_ALT  &lt 3 INT_HENKAN  &lt 2 SPACE  &lt 1 INT_MUHENKAN                 &kp BACKSPACE  &kp ENTER                      &kp DEL
-            >;
-
-            sensor-bindings = <&scroll_up_down>;
-        };
-
-        layer_2 {
-            // -----------------------------------------------------------------------------------------
             // |  1  |  2  |  3  |  4  |  5  |                     |  6  |  7  |  8  |  9  |   0  |
             // |      |     |     |     |     |     |           |    |     |     |     |  ↑  |      |
             // |SHIFT|     |     |     |     |     |           |     |     |     |  ←  |  ↓  |  →  |
             // | CTRL| WIN | ALT |HENKAN|SPACE|MUHENKAN|         | BS | ENT |                   | DEL |
 
             bindings = <
-&kp N1          &mo2          &kp N3        &kp N4            &kp N5                                     &mo6           &mo7       &mo8            &mo9            &mo0
-&kp D           &trans        &trans        &trans            &trans       &trans                &trans  &trans         &trans     &trans          &kp UP_ARROW    &trans
-&kp LEFT_SHIFT  &trans        &trans        &trans            &trans       &trans                &trans  &trans         &trans     &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW
-&kp LCTRL       &kp LEFT_WIN  &kp LEFT_ALT  &lt 3 INT_HENKAN  &lt 2 SPACE  &lt 1 INT_MUHENKAN            &kp BACKSPACE  &kp ENTER                                                   &kp DEL
+&trans  &trans    &trans    &trans  &trans                    &trans  &trans  &trans  &trans  &trans
+&trans  &trans    &trans    &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans    &trans    &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &kp LALT  &kp LGUI  &trans  &trans  &trans            &trans  &trans                          &trans
+            >;
+
+            sensor-bindings =
+                <&scroll_up_down>,
+                <&inc_dec_kp C_VOLUME_DOWN C_VOLUME_UP>;
+        };
+
+        layer_2 {
+            // -----------------------------------------------------------------------------------------
+            // | 半角/全角 |CAPS|     |     |     |                     |     |     |  -  |  ^  |  ¥  |
+            // | TAB |     |     |     |     |     |              |    |     |     |     |  @  |  [  |
+            // |SHIFT|     |     |     |     |     |            | 英数 | かな |     |     |     |  ]  |
+            // | CTRL| WIN | ALT |HENKAN|SPACE|MUHENKAN|         | BS | ENT |                   | DEL |
+
+            bindings = <
+&trans       &kp QUESTION    &kp EQUAL          &kp PERCENT  &kp TILDE                           &trans         &kp UNDERSCORE  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &trans
+&kp AT_SIGN  &kp APOSTROPHE  &kp DOUBLE_QUOTES  &kp MINUS    &kp GRAVE  &trans           &trans  &kp HASH       &kp PLUS        &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &trans
+&trans       &kp DLLR        &kp EXCLAMATION    &kp CARET    &kp PIPE   &kp BACKSLASH    &trans  &kp AMPERSAND  &kp ASTERISK    &kp LEFT_BRACE        &kp RIGHT_BRACE        &trans
+&trans       &trans          &trans             &trans       &trans     &trans                   &trans         &trans                                                               &trans
             >;
 
             sensor-bindings = <&scroll_up_down>;
@@ -250,10 +252,10 @@
             // | CTRL| WIN | ALT |HENKAN|SPACE|MUHENKAN|         | BS | ENT |                   | DEL |
 
             bindings = <
-&kp F1          &kp F2        &kp F3        &kp F4            &kp F5                                     &kp F6         &kp F7     &kp F8  &kp F9  &kp F10
-&kp F11         &kp F12       &trans        &trans            &trans       &trans                &trans  &trans         &trans     &trans  &trans  &trans
-&kp LEFT_SHIFT  &trans        &trans        &trans            &trans       &trans                &trans  &trans         &trans     &trans  &trans  &trans
-&kp LCTRL       &kp LEFT_WIN  &kp LEFT_ALT  &lt 3 INT_HENKAN  &lt 2 SPACE  &lt 1 INT_MUHENKAN            &kp BACKSPACE  &kp ENTER                           &kp DEL
+&kp KP_DIVIDE    &kp N7  &kp N8  &kp N9  &kp KP_MINUS                          &trans    &kp PAGE_UP     &kp UP_ARROW    &kp PAGE_DOWN    &trans
+&kp KP_MULTIPLY  &kp N4  &kp N5  &kp N6  &kp KP_PLUS   &kp KP_DOT      &trans  &kp HOME  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp END
+&trans           &kp N0  &kp N1  &kp N2  &kp N3        &kp KP_EQUAL    &trans  &trans    &trans          &trans          &trans           &trans
+&trans           &trans  &trans  &trans  &trans        &trans                  &trans    &trans                                                    &trans
             >;
 
             sensor-bindings = <&scroll_up_down>;
@@ -267,10 +269,10 @@
             // | CTRL| WIN | ALT |HENKAN|SPACE|MUHENKAN|        | BS | ENT |                  | DEL |
 
             bindings = <
-&bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2  &bt BT_SEL 3    &bt BT_SEL 4                                       &kp MINUS        &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp PLUS
-&bt BT_CLR      &bt BT_CLR_ALL  &trans        &trans          &trans        &trans              &trans           &kp SLASH        &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp ASTERISK
-&kp LEFT_SHIFT  &trans          &trans        &trans          &trans        &trans              &kp KP_NUMBER_0  &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp PERIOD       &kp EQUAL
-&kp LCTRL       &kp LEFT_WIN    &kp LEFT_ALT  &kp INT_HENKAN  &kp SPACE     &kp INT_MUHENKAN                     &kp BACKSPACE    &kp ENTER                                                        &kp DEL
+&bt BT_SEL 0  &bt BT_SEL 1    &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                    &trans  &kp F1  &kp F2   &kp F3   &kp F4
+&bt BT_CLR    &bt BT_CLR_ALL  &trans        &trans        &trans        &trans    &trans  &trans  &kp F5  &kp F6   &kp F7   &kp F8
+&trans        &trans          &trans        &trans        &trans        &trans    &trans  &trans  &kp F9  &kp F10  &kp F11  &kp F12
+&trans        &trans          &trans        &trans        &trans        &trans            &trans  &trans                             &trans
             >;
 
             sensor-bindings = <&scroll_up_down>;
@@ -284,10 +286,10 @@
             // | CTRL| WIN | ALT |HENKAN|SPACE|MUHENKAN|        | BS | ENT |                  | DEL |
 
             bindings = <
-&trans          &trans        &trans        &trans          &trans                                 &trans         &trans     &trans  &trans  &trans
-&trans          &trans        &trans        &trans          &trans     &trans              &trans  &trans         &trans     &trans  &trans  &trans
-&kp LEFT_SHIFT  &trans        &trans        &trans          &trans     &trans              &trans  &trans         &trans     &trans  &trans  &trans
-&kp LCTRL       &kp LEFT_WIN  &kp LEFT_ALT  &kp INT_HENKAN  &kp SPACE  &kp INT_MUHENKAN            &kp BACKSPACE  &kp ENTER                          &kp DEL
+&trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans                          &trans
             >;
 
             sensor-bindings = <&scroll_up_down>;
