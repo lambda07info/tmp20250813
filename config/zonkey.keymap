@@ -41,7 +41,7 @@
         };
 
         combo_hanzen {
-            bindings = <&kp LA(TILDE)>;
+            bindings = <&kp LA(GRAVE)>;
             key-positions = <24 25>;
         };
     };
