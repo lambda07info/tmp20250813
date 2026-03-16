@@ -24,6 +24,26 @@
             bindings = <&kp ESC>;
             key-positions = <0 1>;
         };
+
+        combo_lclk {
+            bindings = <&mkp LCLK>;
+            key-positions = <18 19>;
+        };
+
+        combo_rclk {
+            bindings = <&mkp RCLK>;
+            key-positions = <19 20>;
+        };
+
+        combo_mclk {
+            bindings = <&mkp MCLK>;
+            key-positions = <18 20>;
+        };
+
+        combo_hanzen {
+            bindings = <&kp LA(TILDE)>;
+            key-positions = <24 25>;
+        };
     };
 
     macros {
