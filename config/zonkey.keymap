@@ -11,13 +11,6 @@
     quick-tap-ms = <0>;
 };
 
-&trackball_listener {
-    scroller {
-        layers = <5>;
-        input-processors = <&zip_xy_to_scroll_mapper>;
-    };
-};
-
 / {
     combos {
         compatible = "zmk,combos";
