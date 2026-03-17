@@ -11,18 +11,25 @@
     quick-tap-ms = <0>;
 };
 
+&trackball_listener {
+    scroller {
+        layers = <5>;
+        input-processors = <&zip_xy_to_scroll_mapper>;
+    };
+};
+
 / {
     combos {
         compatible = "zmk,combos";
 
         combo_tab {
             bindings = <&kp TAB>;
-            key-positions = <10 11>;
+            key-positions = <0 1>;
         };
 
         combo_esc {
             bindings = <&kp ESC>;
-            key-positions = <0 1>;
+            key-positions = <10 11>;
         };
 
         combo_lclk {
@@ -72,6 +79,15 @@
 
             tap-ms = <20>;
         };
+
+        scroll_horizontal: behavior_mouse_wheel_horizontal {
+            compatible = "zmk,behavior-sensor-rotate";
+            label = "BEHAVIOR_MOUSE_WHEEL_HORIZONTAL";
+            #sensor-binding-cells = <0>;
+            bindings = <&msc SCRL_RIGHT>, <&msc SCRL_LEFT>;
+
+            tap-ms = <20>;
+        };
     };
 
     keymap {
@@ -79,10 +95,10 @@
 
         default_layer {
             bindings = <
-&kp Q      &kp W     &kp E     &kp R             &kp T                                         &kp Y     &kp U      &kp I      &kp O    &kp P
-&kp A      &kp S     &kp D     &kp F             &kp G        &kp LS(LG(S))         &kp MINUS  &kp H     &kp J      &kp K      &kp L    &kp SEMI
-&kp LSHFT  &kp Z     &kp X     &lt 6 C           &lt 5 V      &lt 4 B               &kp APOS   &kp N     &kp M      &kp COMMA  &kp DOT  &kp FSLH
-&kp LCTRL  &kp LGUI  &kp LALT  &lt 3 INT_HENKAN  &lt 2 SPACE  &lt 4 INT_MUHENKAN               &kp BSPC  &kp ENTER                                &kp DEL
+&kp Q      &kp W     &kp E     &kp R       &kp T                                        &kp Y     &kp U      &kp I      &kp O    &kp P
+&kp A      &kp S     &kp D     &kp F       &kp G        &kp LS(LG(S))        &kp MINUS  &kp H     &kp J      &kp K      &kp L    &lt 6 SEMI
+&kp LSHFT  &kp Z     &kp X     &kp C       &kp V        &lt 4 B              &kp APOS   &kp N     &kp M      &kp COMMA  &kp DOT  &lt 5 FSLH
+&kp LCTRL  &kp LGUI  &kp LALT  &lt 3 BSPC  &lt 2 SPACE  &lt (4) LA(GRAVE)               &kp BSPC  &kp ENTER                                  &kp DEL
             >;
 
             sensor-bindings =
@@ -116,10 +132,10 @@
 
         layer_3 {
             bindings = <
-&kp KP_DIVIDE    &kp N7  &kp N8  &kp N9  &kp KP_MINUS                          &trans    &kp PAGE_UP     &kp UP_ARROW    &kp PAGE_DOWN    &trans
-&kp KP_MULTIPLY  &kp N4  &kp N5  &kp N6  &kp KP_PLUS   &kp KP_DOT      &trans  &kp HOME  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp END
-&trans           &kp N0  &kp N1  &kp N2  &kp N3        &kp KP_EQUAL    &trans  &trans    &trans          &trans          &trans           &trans
-&trans           &trans  &trans  &trans  &trans        &trans                  &trans    &trans                                                    &trans
+&trans  &trans  &trans    &trans  &trans                     &trans  &trans          &trans          &trans        &trans
+&kp N1  &kp N2  &kp N3    &kp N4  &kp N5   &trans    &trans  &kp N6  &kp N7          &kp N8          &kp N9        &kp N0
+&trans  &trans  &kp HOME  &trans  &kp END  &trans    &trans  &trans  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW
+&trans  &trans  &trans    &trans  &trans   &trans            &trans  &trans                                                         &trans
             >;
 
             sensor-bindings = <&scroll_up_down>;
@@ -133,7 +149,7 @@
 &trans        &trans          &trans        &trans        &trans        &trans            &trans  &trans                             &trans
             >;
 
-            sensor-bindings = <&scroll_up_down>;
+            sensor-bindings = <&scroll_horizontal>;
         };
 
         SCROLL {
